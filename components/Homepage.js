@@ -54,7 +54,7 @@ const styles = {
     justifyContent: 'flex-end',
     marginTop: 150,
     padding: 20,
-    backgroundColor: 'red'
+    backgroundColor: 'green'
   },
   logoutText:{
     textAlign: 'center',

@@ -19,7 +19,8 @@ const App = () => {
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
-          textAlign:'center'
+          textAlign:'center',
+          marginLeft:110
         },
       }}>
         <Stack.Screen name="Login" component={Loginscreen} options={{title: 'LoginPage'}}/>

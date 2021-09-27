@@ -7,10 +7,12 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import { useState } from 'react/cjs/react.development';
 
 
 const LoginScreen = (props) => {
   const { containerStyle, buttonContainer, buttonStyle } = styles;
+  const [userInfo, setUserInfo] = useState({})
 
   GoogleSignin.configure({
     webClientId: '236253973910-rvctbr2k01n7ildfsd28cefa0c1n86hh.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
@@ -22,11 +24,10 @@ const LoginScreen = (props) => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      console.log("userInfo", userInfo)
+      setUserInfo(userInfo)
       props.navigation.navigate("Homepage")
 
     } catch (error) {
-      console.log("erooor", error)
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
       } else if (error.code === statusCodes.IN_PROGRESS) {
